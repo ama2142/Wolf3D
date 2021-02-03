@@ -250,6 +250,11 @@ typedef struct		s_game
 	double			*z_buffer;
 	int				status;
 	int				draw_map;
+	int				shift_l;
+	int				shift_r;
+	int				light;
+	double			light_k;
+	double			shift_k;
 	int				fps;
 	unsigned int	f_time;
 	unsigned int	last_time;

@@ -101,9 +101,9 @@ void			check_keyboard(t_game *game, float d_time, int *quit)
 
 	game->comeback = 1;
 	if (state[SDL_SCANCODE_UP] || state[SDL_SCANCODE_W])
-		move_forward(&(game->player.obj), &game->level.map, d_time);
+		move_forward(game, &(game->player.obj), &game->level.map, d_time);
 	else if (state[SDL_SCANCODE_DOWN] || state[SDL_SCANCODE_S])
-		move_back(&(game->player.obj), &game->level.map, d_time);
+		move_back(game, &(game->player.obj), &game->level.map, d_time);
 	if (state[SDL_SCANCODE_LEFT])
 		turn_left(&(game->player.obj), d_time);
 	else if (state[SDL_SCANCODE_RIGHT])
@@ -114,4 +114,8 @@ void			check_keyboard(t_game *game, float d_time, int *quit)
 		move_right(&(game->player.obj), &game->level.map, d_time);
 	else if (state[SDL_SCANCODE_SPACE])
 		check_map_block(game, quit);
+	else if (state[SDL_SCANCODE_L])
+		put_out_the_light(game);
+	else if (state[SDL_SCANCODE_LSHIFT] || state[SDL_SCANCODE_LCTRL])
+		move_shift(game);
 }

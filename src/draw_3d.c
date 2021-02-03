@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "wolf.h"
+#include <stdio.h>
+
 
 void		check_index(t_game *game, int *index)
 {
@@ -80,7 +82,7 @@ void		draw_game(t_game *game)
 	pthread_attr_t	attr;
 	int				c_flow;
 	void			*status;
-
+	
 	status = 0;
 	pthread_attr_init(&attr);
 	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
@@ -100,4 +102,6 @@ void		draw_game(t_game *game)
 	if (game->draw_map)
 		draw_map(game);
 	draw_gui(game);
+	if (game->light)
+		put_out_the_light(game);
 }

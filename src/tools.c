@@ -53,3 +53,13 @@ int		clamp_col(int col)
 		return (255);
 	return (col);
 }
+
+void	move_shift(t_game *game)
+{
+	if (game->shift_l == 1)
+		game->shift_k = 3.0;
+	else if (game->shift_r == 1)
+		game->shift_k = 0.3;
+	else
+		game->shift_k = 1;
+}
